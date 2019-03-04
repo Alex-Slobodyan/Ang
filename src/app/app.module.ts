@@ -16,6 +16,7 @@ import { RouterAppModule } from './router.module';
     CoreModule,
     RouterAppModule
   ],
+  exports: [CoreModule],
   providers: [],
   bootstrap: [AppComponent]
 })

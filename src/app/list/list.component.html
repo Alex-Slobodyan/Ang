@@ -1,19 +1,16 @@
 <h2>My countries ngClass Algeria</h2>
 <div class="countries">
   <div class="countries__item" *ngFor="let country of countries">
-    <div [ngClass]="{'countries__color': country.name === ifCountry}"><b>Name:</b> {{country.name}}</div>
+    <a [routerLink]="['item', country.name]" [ngClass]="{'countries__color': country.name === ifCountry}"><b>Name:</b> {{country.name}}</a>
     <div><b>Capital:</b> {{country.capital}}</div>
   </div>
 </div>
 
 <h2>My countries *ngIf Algeria</h2>
 <div class="countries">
-  <div class="countries__item" *ngFor="let country of countries">
-    <div *ngIf="ifCountry !== country.name">
-      <div><b>Name:</b> {{country.name}}</div>
-      <div><b>Capital:</b> {{country.capital}}</div>
-    </div>
-  </div>
+  <ng-container *ngFor="let country of countries">
+    <app-item [country]="country" (wtfOutput)="wtfEvent($event)"></app-item>
+  </ng-container>
 </div>
 
 <h2>My countries ngPipes Algeria</h2>

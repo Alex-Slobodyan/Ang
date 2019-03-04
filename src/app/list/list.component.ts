@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { COUNTRIES } from '../mock-countries';
+import { CountryService } from '../_core/counttrys.service';
 
 @Component({
   selector: 'app-list',
@@ -7,11 +7,20 @@ import { COUNTRIES } from '../mock-countries';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  countries = COUNTRIES;
-  ifCountry = 'Algeria'
-  constructor() { }
+
+  countries: any[];
+  ifCountry = 'Algeria';
+
+  constructor(
+    private countrySrv: CountryService
+  ) { }
 
   ngOnInit() {
+    this.countries = this.countrySrv.getCountries();
+  }
+
+  wtfEvent(event: string) {
+    alert(event);
   }
 
 }

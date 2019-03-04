@@ -1,0 +1,7 @@
+<div class="countries__item" *ngIf="ifCountry !== country.name">
+    <div>
+      <div><b>Name:</b> {{country.name}}</div>
+      <div><b>Capital:</b> {{country.capital}}</div>
+    </div>
+    <button (click)="wtf(country)">WTF</button>
+</div>

@@ -16,7 +16,7 @@ const routes: Routes = [
         loadChildren: './list/list.module#ListModule'
       },
       {
-        path: 'item',
+        path: 'item/:nameCountry',
         loadChildren: './list-item/list-item.module#ListItemModule'
       }
     ]
