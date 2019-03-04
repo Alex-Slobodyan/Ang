@@ -1,0 +1,13 @@
+.countries {
+  background: lightgrey;
+  padding: 16px;
+
+  &__item {
+    border-bottom: 1px solid white;
+    padding: 10px 0;
+  }
+
+  &__color {
+      color: greenyellow;
+  }
+}
