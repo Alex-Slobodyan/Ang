@@ -15,3 +15,13 @@
     </div>
   </div>
 </div>
+
+<h2>My countries ngPipes Algeria</h2>
+<div class="countries">
+  <div class="countries__item" *ngFor="let country of countries">
+    <div>
+      <div><b>Name:</b> {{country.name | reverse}} </div>
+      <div><b>Capital:</b> {{country.capital | reverse}} </div>
+    </div>
+  </div>
+</div>
