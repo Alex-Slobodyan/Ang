@@ -1,7 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { CountryService } from '../_core/counttrys.service';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { CountryService } from '../_core/country.service';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-list-item',
@@ -20,13 +21,18 @@ export class ListItemComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.subscription = this.route.params.subscribe(({ nameCountry }) => {
-      this.model = this.countrySrv.getCurrentCountryByName(nameCountry);
+    this.subscription = this.route.params.pipe(
+        switchMap(({ nameCountry }) => 
+          this.countrySrv.getDataSource(nameCountry))
+    )
+    .subscribe(({item}) => {
+      this.model = item;
     });
+    
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    // this.subscription.unsubscribe();
   }
 
 

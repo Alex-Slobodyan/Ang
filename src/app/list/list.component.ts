@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CountryService } from '../_core/counttrys.service';
+import { CountryService } from '../_core/country.service';
 
 @Component({
   selector: 'app-list',
@@ -16,7 +16,9 @@ export class ListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.countries = this.countrySrv.getCountries();
+    // this.countrySrv.getCountries().subscribe((countries: any[]) => {
+    //   this.countries = countries;
+    // });
   }
 
   wtfEvent(event: string) {
